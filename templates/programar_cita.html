@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Programar Cita para {{ cliente.nombres }}</h2>
+    <p><strong>Dirección de atención:</strong> {{ cliente.direccion }}</p>
+    <form method="POST">
+        <label>Selecciona una Mascota:</label>
+        <select name="mascota_id" required>
+            {% for mascota in mascotas %}
+                <option value="{{ mascota.id }}">{{ mascota.nombre }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Selecciona un Servicio:</label>
+        <select name="servicio_id" required>
+            {% for servicio in servicios %}
+                <option value="{{ servicio.id }}">{{ servicio.nombre }} ({{ servicio.tipo }})</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Fecha:</label>
+        <input type="date" name="fecha" required><br>
+
+        <label>Franja Horaria:</label>
+        <select name="franja_horaria" required>
+            <option value="08:00-10:00">08:00 - 10:00</option>
+            <option value="10:00-12:00">10:00 - 12:00</option>
+            <option value="14:00-16:00">14:00 - 16:00</option>
+        </select><br>
+
+        <button type="submit">Programar Cita</button>
+    </form>
+{% endblock %}

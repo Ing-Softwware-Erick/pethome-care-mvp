@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Registrar Tratamiento</h2>
+    <p><strong>Cita #{{ cita.id }}</strong> | Mascota: {{ cita.mascota.nombre }} | Servicio: {{ cita.servicio.nombre }}</p>
+    <form method="POST">
+        <label>Procedimiento Realizado:</label>
+        <input type="text" name="procedimiento" placeholder="Ej: Vacunación antirrábica" required><br>
+
+        <label>Observaciones:</label>
+        <textarea name="observaciones" placeholder="Notas clínicas, medicamentos, recomendaciones..."></textarea><br>
+
+        <button type="submit">Registrar Tratamiento y Finalizar Cita</button>
+    </form>
+{% endblock %}

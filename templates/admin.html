@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Panel de Administración (Evidencia de Datos)</h2>
+
+    <h3>👤 Clientes Registrados ({{ clientes|length }})</h3>
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nombres }} {{ cliente.apellidos }} — Doc: {{ cliente.documento }} — Tel: {{ cliente.telefono }}</li>
+        {% else %}
+            <li>No hay clientes registrados.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>🐶 Mascotas Inscritas ({{ mascotas|length }})</h3>
+    <ul>
+        {% for mascota in mascotas %}
+            <li>{{ mascota.nombre }} ({{ mascota.especie }}) — Dueño: {{ mascota.cliente.nombres }}</li>
+        {% else %}
+            <li>No hay mascotas registradas.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>📅 Citas Programadas ({{ citas|length }})</h3>
+    <ul>
+        {% for cita in citas %}
+            <li>
+                <strong>Cita #{{ cita.id }}</strong> — {{ cita.mascota.nombre }} — {{ cita.servicio.nombre }}
+                — Fecha: {{ cita.fecha }} — Estado: <strong>{{ cita.estado }}</strong>
+                {% if cita.estado != 'Atendida' %}
+                    — <a href="{{ url_for('registrar_tratamiento', cita_id=cita.id) }}">Registrar Tratamiento</a>
+                {% endif %}
+            </li>
+        {% else %}
+            <li>No hay citas programadas.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>💉 Tratamientos Realizados ({{ tratamientos|length }})</h3>
+    <ul>
+        {% for tratamiento in tratamientos %}
+            <li>Tratamiento #{{ tratamiento.id }} para Cita #{{ tratamiento.cita_id }}: {{ tratamiento.procedimiento }}</li>
+        {% else %}
+            <li>No hay tratamientos registrados.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+N

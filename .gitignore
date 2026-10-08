@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# PetHome Care - archivos locales del MVP
+database.db
+*.db
+*.sqlite3

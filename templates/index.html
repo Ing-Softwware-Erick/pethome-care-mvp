@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Bienvenido al Prototipo Funcional</h2>
+    <p>Este es un Producto Mínimo Viable (MVP) para demostrar los flujos principales del sistema PetHome Care.</p>
+
+    <h3>Flujos Implementados:</h3>
+    <ol>
+        <li><a href="{{ url_for('registrar_dueno') }}">Registrar Dueño e Inscribir Mascota</a></li>
+        <li>Contratar un Plan <em>(requiere un dueño registrado primero)</em></li>
+        <li>Programar una Cita <em>(requiere mascota y plan)</em></li>
+        <li><a href="{{ url_for('admin') }}">Ver Citas y Registrar Tratamientos (Panel Admin)</a></li>
+    </ol>
+
+    <p><strong>💡 Nota:</strong> Para probar los flujos 2, 3 y 4, primero debes registrar un dueño y una mascota. El sistema te redirigirá automáticamente.</p>
+
+    <p style="text-align:center; margin-top:30px;">
+        <a href="{{ url_for('registrar_dueno') }}"><button>🚀 Comenzar: Registrar Dueño</button></a>
+    </p>
+{% endblock %}

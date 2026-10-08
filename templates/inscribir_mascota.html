@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Inscribir Mascota para {{ cliente.nombres }} {{ cliente.apellidos }}</h2>
+    <form method="POST">
+        <label>Nombre Mascota:</label>
+        <input type="text" name="nombre" required><br>
+
+        <label>Especie:</label>
+        <input type="text" name="especie" placeholder="Perro, gato, etc." required><br>
+
+        <label>Raza:</label>
+        <input type="text" name="raza"><br>
+
+        <label>Edad Aprox (años):</label>
+        <input type="number" name="edad_aprox" min="0"><br>
+
+        <label>Observaciones:</label>
+        <textarea name="observaciones" placeholder="Requerimientos especiales, notas clínicas básicas..."></textarea><br>
+
+        <button type="submit">Inscribir Mascota</button>
+    </form>
+{% endblock %}

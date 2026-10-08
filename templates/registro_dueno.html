@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Registrar Nuevo Dueño</h2>
+    <form method="POST">
+        <label>Nombres:</label>
+        <input type="text" name="nombres" required><br>
+
+        <label>Apellidos:</label>
+        <input type="text" name="apellidos" required><br>
+
+        <label>Documento:</label>
+        <input type="text" name="documento" required><br>
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" required><br>
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion" required><br>
+
+        <button type="submit">Registrar Dueño</button>
+    </form>
+{% endblock %}

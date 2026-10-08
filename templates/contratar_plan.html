@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Contratar un Plan para {{ cliente.nombres }}</h2>
+    <form method="POST">
+        <label>Selecciona una Mascota:</label>
+        <select name="mascota_id" required>
+            {% for mascota in mascotas %}
+                <option value="{{ mascota.id }}">{{ mascota.nombre }} ({{ mascota.especie }})</option>
+            {% endfor %}
+        </select><br>
+
+        <label>Selecciona un Plan:</label>
+        <select name="plan_id" required>
+            {% for plan in planes %}
+                <option value="{{ plan.id }}">{{ plan.nombre }} - ${{ '{:,.0f}'.format(plan.precio_ref) }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Contratar Plan</button>
+    </form>
+{% endblock %}
